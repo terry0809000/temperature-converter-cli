@@ -1,14 +1,10 @@
 def c_to_f(celsius: float) -> float:
-    """Convert Celsius to Fahrenheit."""
     return celsius * 9 / 5 + 32
 
-
 def f_to_c(fahrenheit: float) -> float:
-    """Convert Fahrenheit to Celsius."""
     return (fahrenheit - 32) * 5 / 9
 
-
-def main() -> None:
+def main():
     while True:
         print("=== Temperature Converter ===")
         print("1) Celsius to Fahrenheit")
@@ -22,24 +18,23 @@ def main() -> None:
             break
 
         if choice == "1":
-            try:
-                value = float(input("Enter temperature in °C: ").strip())
-                result = c_to_f(value)
-                print(f"{value:.2f} °C = {result:.2f} °F\n")
-            except ValueError:
-                print("Please enter a valid number (e.g. 37 or 37.5).\n")
+            value = input("Enter temperature in °C: ").strip()
+            if value.replace('.', '', 1).isdigit():
+                value = float(value)
+                print(f"{value:.2f} °C = {c_to_f(value):.2f} °F\n")
+            else:
+                print("Invalid number. Try something like 37 or 37.5.\n")
 
         elif choice == "2":
-            try:
-                value = float(input("Enter temperature in °F: ").strip())
-                result = f_to_c(value)
-                print(f"{value:.2f} °F = {result:.2f} °C\n")
-            except ValueError:
-                print("Please enter a valid number (e.g. 98.6).\n")
+            value = input("Enter temperature in °F: ").strip()
+            if value.replace('.', '', 1).isdigit():
+                value = float(value)
+                print(f"{value:.2f} °F = {f_to_c(value):.2f} °C\n")
+            else:
+                print("Invalid number. Try something like 98.6.\n")
 
         else:
-            print("Invalid choice, please type 1, 2 or Q.\n")
-
+            print("Invalid choice, try again.\n")
 
 if __name__ == "__main__":
     main()
