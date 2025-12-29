@@ -1,2 +1,9 @@
-# temperature-converter-cli
-What it does: converts between Celsius and Fahrenheit in the terminal
+# Temperature Converter CLI
+
+A very simple command-line temperature converter written in Python.
+
+## How to run
+
+```bash
+python converter.py
+
